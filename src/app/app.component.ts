@@ -1,32 +1,32 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { Platform, NavController } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { AuthService } from './services/auth.service';
-import { AlertService } from './services/alert.service';
+import { Platform, NavController } from "@ionic/angular";
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+import { StatusBar } from "@ionic-native/status-bar/ngx";
+import { AuthService } from "./services/auth.service";
+import { AlertService } from "./services/alert.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html'
+  selector: "app-root",
+  templateUrl: "app.component.html"
 })
 export class AppComponent {
   public appPages = [
     {
-      title: 'Dashboard',
-      url: '/dashboard',
-      icon: 'home'
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: "home"
     },
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
+      title: "Home",
+      url: "/home",
+      icon: "home"
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
+      title: "List",
+      url: "/list",
+      icon: "list"
+    }
   ];
 
   constructor(
@@ -49,16 +49,14 @@ export class AppComponent {
   }
 
   logout() {
-    this.authService.logout().subscribe(
-      data => {
-        this.alertService.presentToast(data['message']);        
-      },
-      error => {
+    this.authService
+      .logout()
+      .then(() => {
+        this.alertService.presentToast("logout");
+        this.navCtrl.navigateRoot("/landing");
+      })
+      .catch(error => {
         console.log(error);
-      },
-      () => {
-        this.navCtrl.navigateRoot('/landing');
-      }
-    );
+      });
   }
 }
