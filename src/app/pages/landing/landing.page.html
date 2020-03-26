@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>landing</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <p></p>
+    <ion-img src="/assets/2.png"></ion-img>
+    <ion-card-header>
+      <ion-card-title
+        >Bienvenido al sistema de registro de Ionic
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>comienza a navegar en esta gran herramienta</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          color="primary"
+          expand="full"
+          color="primary"
+          (click)="login()"
+          >iniciar Sesion</ion-button
+        >
+      </ion-col>
+      <ion-col>
+        <ion-button
+          color="primary"
+          expand="full"
+          color="danger"
+          (click)="register()"
+          >Registrar</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
